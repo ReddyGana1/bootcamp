@@ -63,4 +63,5 @@ with torch.no_grad():
         outputs = model(images)
         predicted = torch.max(outputs.data, 1)
         total = labels.size(0)
-        correct = (predicted == labels).sum().item()
+        correct += (predicted == labels).sum().item()
+    print(f"Test Accuracy: {100 * correct / total}")
